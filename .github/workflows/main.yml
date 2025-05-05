@@ -18,7 +18,7 @@ jobs:
     - name: Backup old site and copy new files
       run: |
         # Backup current site
-        sudo tar -zcvf /data/bkp/glocoach-$(date +"%d-%m-%Y").tar.gz /var/www/html/
+        #sudo tar -zcvf /data/bkp/glocoach-$(date +"%d-%m-%Y").tar.gz /var/www/html/
 
         # Clear existing site files
         sudo rm -rf /var/www/html/*
