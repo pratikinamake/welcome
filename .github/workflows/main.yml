@@ -26,6 +26,6 @@ jobs:
         # Copy repo files to /var/www/html
         sudo cp -r ./* /var/www/html/
 
-        # Copy config files
-       #sudo cp /data/devops/wp-config.php /var/www/html/
-        #sudo cp /data/devops/.htaccess /var/www/html/
+        # Copy config files (uncomment if needed)
+        # sudo cp /data/devops/wp-config.php /var/www/html/
+        # sudo cp /data/devops/.htaccess /var/www/html/
