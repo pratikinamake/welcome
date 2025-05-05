@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     name: Backup and Deploy to /var/www/html
-    runs-on: [self-hosted, jenkins-server]
+    runs-on: self-hosted
 
     steps:
     - name: Checkout Repository
