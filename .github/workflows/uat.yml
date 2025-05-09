@@ -1,0 +1,31 @@
+name: Deploy PHP Website-uat
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Backup and Deploy to /var/www/html
+    runs-on: [self-hosted, jenkins-server]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Backup old site and copy new files
+      run: |
+        # Backup current site
+        sudo tar -zcvf /data/bkp/glocoach-$(date +"%d-%m-%Y").tar.gz /var/www/html/
+
+        # Clear existing site files
+        sudo rm -rf /var/www/html/*
+
+        # Copy repo files to /var/www/html
+        sudo cp -r ./* /var/www/html/
+
+        # Copy config files (uncomment if needed)
+        # sudo cp /data/devops/wp-config.php /var/www/html/
+        # sudo cp /data/devops/.htaccess /var/www/html/
